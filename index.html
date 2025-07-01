@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>WMarket</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script src="scripts/cart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="scripts/model-viewer.js" defer></script>
+
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#info" class="logo-link">
+                    <span class="logo-part">WM</span>
+                    <span class="logo-rest">arket</span>
+                </a>
+            </div>
+    
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#info" class="nav-link">Главная</a></li>
+                    <li class="nav-item"><a href="#products" class="nav-link">Продукты</a></li>
+                    <li class="nav-item"><a href="#delivery" class="nav-link">Доставка</a></li>
+                    <li class="nav-item"><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+    
+            <div class="cart-wrapper">
+                <a href="#cart" class="cart-link">
+                    <div class="cart-icon">
+                        <img src="asstets/images/shopping-cart.svg" alt="Корзина" class="cart-icon-img">
+                    </div>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section" id="info">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h2 class="hero-subtitle">Номер один в сфере продуктов</h2>
+                    <h1 class="hero-title"><span>WM</span>arket</h1>
+                    
+                    <div class="hero-description">
+                        <p>Мы - ведущий онлайн-супермаркет Казахстана, предлагающий более 15,000 свежих продуктов ежедневно. Наша миссия - сделать покупки максимально удобными и доступными для каждого.</p>
+                    </div>
+                    
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <img src="asstets/images/food.png" alt="Ингредиенты" class="feature-icon">
+                            <div class="feature-text">
+                                <h3>Только свежий ассортимент</h3>
+                                <p>Ежедневное пополнение товаров от проверенных фермеров и поставщиков</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <img src="asstets/images/fast-delivery.png" alt="Доставка" class="feature-icon">
+                            <div class="feature-text">
+                                <h3>Быстрая доставка</h3>
+                                <p>90% заказов доставляются в течение 2 часов после оформления</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15,000+</span>
+                            <span class="stat-label">товаров в каталоге</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">работаем без выходных</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">довольных клиентов</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#products" class="hero-button">Каталог продуктов</a>
+                    
+                    <div class="quality-badge">
+                        <img src="asstets/images/satisfaction.png" alt="Гарантия качества">
+                        <span>Гарантия свежести всех продуктов</span>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div id="model-container" class="model-container"></div>
+                </div>
+
+                
+            </div>
+        </section>
+        
+        <section class="container cards" id="products">
+            <h1>Выбор наших покупателей</h1>
+            <section class="wrapper-cards">
+                <figure class="card" data-id="1" data-name="Картофель" data-price="450">
+                    <div class="card-img-container">
+                        <img src="asstets/products images/potato.png" alt="Картофель">
+                    </div>
+                    <h2>Картофель</h2>
+                    <div class="product-price">450 ₸ за кг.</div>
+                    <p>Свежий картофель сорта "Невский" с Белорусских полей. Идеален для жарки и пюре.</p>
+                    <button class="product-btn">В корзину</button>
+                </figure>
+                
+                <figure class="card" data-id="2" data-name="Морковь" data-price="320">
+                    <div class="card-img-container">
+                        <img src="asstets/products images/carrot.png" alt="Морковь">
+                    </div>
+                    <h2>Морковь</h2>
+                    <div class="product-price">320 ₸ за кг.</div>
+                    <p>Сочная морковь сорта "Шантанэ", собранная на ферме "Олжа Агро". Богата витамином А.</p>
+                    <button class="product-btn">В корзину</button>
+                </figure>
+                
+                <figure class="card" data-id="3" data-name="Перец" data-price="400">
+                    <div class="card-img-container">
+                        <img src="asstets/products images/pepper.png" alt="Перец">
+                    </div>
+                    <h2>Болгарский перец</h2>
+                    <div class="product-price">400 ₸ за кг.</div>
+                    <p>Сладкий перец разных цветов. Выращен в теплицах с минимальным использованием удобрений.</p>
+                    <button class="product-btn">В корзину</button>
+                </figure>
+                
+                <figure class="card" data-id="4" data-name="Огурцы" data-price="270">
+                    <div class="card-img-container">
+                        <img src="asstets/products images/cucumber.png" alt="Огурцы">
+                    </div>
+                    <h2>Огурцы</h2>
+                    <div class="product-price">270 ₸ за кг</div>
+                    <p>Хрустящие огурцы сорта "Апрельские". Собраны утром в день доставки.</p>
+                    <button class="product-btn">В корзину</button>
+                </figure>
+                
+                <figure class="card" data-id="5" data-name="Томаты" data-price="310">
+                    <div class="card-img-container">
+                        <img src="asstets/products images/tomatoes.png" alt="Томаты">
+                    </div>
+                    <h2>Томаты</h2>
+                    <div class="product-price">310 ₸ за кг.</div>
+                    <p>Ароматные помидоры "Бычье сердце". Выращены на открытом грунте.</p>
+                    <button class="product-btn">В корзину</button>
+                </figure>
+                
+                <figure class="card" data-id="6" data-name="Капуста" data-price="560">
+                    <div class="card-img-container">
+                        <img src="asstets/products images/cabbage.png" alt="Капуста">
+                    </div>
+                    <h2>Капуста</h2>
+                    <div class="product-price">560 ₸ за кг.</div>
+                    <p>Белокочанная капуста поздних сортов. Отлично подходит для квашения.</p>
+                    <button class="product-btn">В корзину</button>
+                </figure>
+                
+                <figure class="card" data-id="7" data-name="Красный лук" data-price="450">
+                    <div class="card-img-container">
+                        <img src="asstets/products images/onion.png" alt="Красный лук">
+                    </div>
+                    <h2>Красный лук</h2>
+                    <div class="product-price">450 ₸ за кг.</div>
+                    <p>Сладкий крымский лук с мягким вкусом. Идеален для салатов.</p>
+                    <button class="product-btn">В корзину</button>
+                </figure>
+                
+                <figure class="card" data-id="8" data-name="Кукуруза" data-price="150">
+                    <div class="card-img-container">
+                        <img src="asstets/products images/corn.png" alt="Кукуруза">
+                    </div>
+                    <h2>Кукуруза</h2>
+                    <div class="product-price">150 ₸ за кг.</div>
+                    <p>Сахарная кукуруза "Бондюэль". Варится всего 10-15 минут.</p>
+                    <button class="product-btn">В корзину</button>
+                </figure>
+            </section>
+        </section>
+
+        <section class="delivery-section" id="delivery">
+            <div class="delivery-content">
+                <div class="delivery-text">
+                    <h1 class="delivery-title">Доставка во все города Казахстана</h1>
+                    
+                    <div class="delivery-features">
+                        <p class="delivery-intro">
+                            Забудьте о тяжелых сумках и очередях – теперь свежие продукты, 
+                            вкусные деликатесы и все необходимое приезжают прямо к вашей двери!
+                        </p>
+                        
+                        <div class="benefits">
+                            <h3>Почему выбирают нашу доставку?</h3>
+                            <ul class="benefits-list">
+                                <li><span class="icon">✓</span> Молниеносная доставка – получайте заказы уже в течение 2-х часов!</li>
+                                <li><span class="icon">✓</span> Свежесть гарантирована – только отборные продукты</li>
+                                <li><span class="icon">✓</span> Удобное время – доставка даже ночью или ранним утром</li>
+                                <li><span class="icon">✓</span> Экологичная упаковка – заботимся о природе</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="how-it-works">
+                            <h3>Как это работает?</h3>
+                            <div class="steps-list">
+                                <div class="step"><span class="step-number">1.</span> Выбирайте из 10 000+ товаров</div>
+                                <div class="step"><span class="step-number">2.</span> Оформляйте заказ онлайн</div>
+                                <div class="step"><span class="step-number">3.</span> Получайте с улыбкой у двери</div>
+                            </div>
+                        </div>
+                        
+                        <p class="delivery-footer">
+                            Ваше время дорого – доверьте покупки нам!<br>
+                            Доставляем с любовью<br>
+                            Ваш <span class="brand">WM</span><span class="brand-suffix">arket</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="delivery-image">
+                    <img src="asstets/images/delivery-man.png" alt="Курьер с доставкой" loading="lazy">
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <section class="container footer" id="contacts">
+            <p>Все права защищены, 2025</p>
+            <p class="number" id="number">Номер для связи: +77 (47) 496-91-36</p>
+        </section>
+    </footer>
+    
+    <div class="cart-popup" id="cartModal">
+        <div class="cart-popup-content">
+            <div class="cart-popup-header">
+                <h3>Ваша корзина</h3>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items-container"></div>
+            <div class="cart-popup-footer">
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <span class="total-price">0 ₸</span>
+                </div>
+                <button class="checkout-btn">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
